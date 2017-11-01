@@ -15,6 +15,7 @@ gem 'faraday'
 gem 'figaro'
 gem 'pry'
 gem 'active_model_serializers'
+gem 'will_paginate'
 
 
 group :development do
