@@ -10,6 +10,6 @@ class BestbuyService
       faraday.adapter Faraday.default_adapter
     end
     response = conn.get
-    JSON.parse(response.body, symbolize_name: true)["stores"]
+    JSON.parse(response.body, symbolize_names: true)[:stores]
   end
 end

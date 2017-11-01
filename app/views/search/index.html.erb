@@ -3,10 +3,10 @@
 
 <% @stores.each do |store| %>
   <ul class="store">
-    <li><%= store.long_name %></li>
-    <li><%= store.city %></li>
-    <li><%= store.distance %></li>
-    <li><%= store.phone_number %></li>
-    <li><%= store.store_type %></li>
+    <li>Long name: <%= store.long_name %></li>
+    <li>City: <%= store.city %></li>
+    <li>Distance: <%= store.distance %></li>
+    <li>Phone number: <%= store.phone_number %></li>
+    <li>Store type: <%= store.store_type %></li>
   </ul>
 <% end %>
