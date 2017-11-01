@@ -18,6 +18,7 @@ class Api::V1::ItemsController < ApplicationController
 
   def destroy
     Item.delete(params[:id])
+    render json: {}, status: :no_content
   end
 
   private
