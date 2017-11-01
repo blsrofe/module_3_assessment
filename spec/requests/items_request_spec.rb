@@ -31,10 +31,23 @@ describe "Items API" do
 
     post '/api/v1/items', {item: item_hash}
 
-    returned_item = JSON.parse(response.body)
     item = Item.last
 
     expect(response).to be_success
     expect(item.name).to eq(item_hash[:name])
+  end
+
+  it "can update an item" do
+    item = Item.create!(name: "Item1", description: "Something", image_url: "www.google.com")
+    item_hash = {name: "Item2"}
+
+    original_name = item.name
+
+    put "/api/v1/items/#{item.id}", {item: item_hash}
+
+    new_name = Item.last.name
+
+    expect(response).to be_success
+    expect(original_name).to_not eq(new_name)
   end
 end
