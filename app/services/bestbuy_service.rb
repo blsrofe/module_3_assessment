@@ -6,7 +6,7 @@ class BestbuyService
 
   def find_by_zip(zip)
     key = ENV["API_KEY"]
-    conn = Faraday.new(:url => "https://api.bestbuy.com/v1/stores(area(80202,25))?format=json&show=storeType,longName,distance,phone,city&apiKey=#{key}") do |faraday|
+    conn = Faraday.new(:url => "https://api.bestbuy.com/v1/stores(area(#{zip},25))?format=json&show=storeType,longName,distance,phone,city&pageSize=20&apiKey=#{key}") do |faraday|
       faraday.adapter Faraday.default_adapter
     end
     response = conn.get

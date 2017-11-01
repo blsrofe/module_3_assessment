@@ -11,6 +11,6 @@ describe "store" do
     stores = Store.find_by_zip("80202")
 
     expect(stores.count).to eq(17)
-    expect(store.first).to be_a(Store)
+    expect(stores.first).to be_a(Store)
   end
 end
