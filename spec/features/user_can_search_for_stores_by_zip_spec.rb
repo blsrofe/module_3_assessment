@@ -12,8 +12,8 @@ describe "user can search for stores by zip" do
     # And I should see the long name, city, distance, phone number and store type for each of the 10 results
 
     visit "/"
-    fill_in :search, with "80202"
-    click_on "search"
+    fill_in 'Enter zip', with: "80202"
+    click_on "Search"
 
     expect(current_path).to eq("/search")
     expect(page).to have_content("17 Total Stores")
@@ -25,6 +25,6 @@ describe "user can search for stores by zip" do
       expect(page).to have_css(".distance")
       expect(page).to have_css(".phone_number")
       expect(page).to have_css(".store_type")
-    end    
+    end
   end
 end
