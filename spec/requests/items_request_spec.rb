@@ -14,4 +14,15 @@ describe "Items API" do
     expect(response).to be_success
     expect(items.count).to eq(4)
   end
+
+  it "returns an item" do
+    item = Item.create!(name: "Item1", description: "Something", image_url: "www.google.com")
+
+    get "/api/v1/items/#{item.id}"
+
+    returned_item = JSON.parse(response.body)
+
+    expect(response).to be_success
+    expect(item.name).to eq(returned_item["name"])
+  end
 end
