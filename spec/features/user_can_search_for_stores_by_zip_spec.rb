@@ -8,7 +8,7 @@ describe "user can search for stores by zip" do
 
     expect(current_path).to eq("/search")
     expect(page).to have_content("17 Total Stores")
-    expect(page).to have_css(".stores", count: 10)
+    expect(page).to have_css(".store", count: 10)
     within(first(".store")) do
       expect(page).to have_css(".long_name")
       expect(page).to have_css(".city")
