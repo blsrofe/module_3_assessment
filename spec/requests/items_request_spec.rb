@@ -50,4 +50,18 @@ describe "Items API" do
     expect(response).to be_success
     expect(original_name).to_not eq(new_name)
   end
+
+  it "can delete an item" do
+    item = Item.create!(name: "Item1", description: "Something", image_url: "www.google.com")
+    item2 = Item.create!(name: "Item2", description: "Something", image_url: "www.google.com")
+
+    expect(Item.count).to eq(2)
+    expect(Item.last.name).to eq("Item2")
+
+    delete "/api/v1/items/#{item2.id}"
+
+    expect(response).to be_success
+    expect(Item.count).to eq(1)
+    expect(Item.last.name).to eq("Item1")
+  end
 end
