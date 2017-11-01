@@ -25,4 +25,16 @@ describe "Items API" do
     expect(response).to be_success
     expect(item.name).to eq(returned_item["name"])
   end
+
+  it "can create an item" do
+    item_hash = {name: "Item1", description: "Something", image_url: "www.google.com"}
+
+    post '/api/v1/items', {item: item_hash}
+
+    returned_item = JSON.parse(response.body)
+    item = Item.last
+
+    expect(response).to be_success
+    expect(item.name).to eq(item_hash[:name])
+  end
 end
